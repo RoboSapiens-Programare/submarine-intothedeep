@@ -9,7 +9,6 @@ import static com.pedropathing.follower.FollowerConstants.rightFrontMotorDirecti
 import static com.pedropathing.follower.FollowerConstants.rightFrontMotorName;
 import static com.pedropathing.follower.FollowerConstants.rightRearMotorDirection;
 import static com.pedropathing.follower.FollowerConstants.rightRearMotorName;
-import static java.lang.Math.abs;
 
 import com.pedropathing.follower.Follower;
 import com.pedropathing.util.Constants;
@@ -39,8 +38,8 @@ public class DriveMode extends OpMode {
 
     private void updateFollower(double power) {
         double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-        double x = gamepad1.right_stick_x; // this is strafing
-        double rx = -gamepad1.left_stick_x;
+        double x = -gamepad1.right_stick_x; // this is strafing
+        double rx = gamepad1.left_stick_x;
 
         // Denominator is the largest motor power (absolute value) or 1
         // This ensures all the powers maintain the same ratio, but only when
